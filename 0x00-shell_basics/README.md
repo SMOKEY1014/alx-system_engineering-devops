@@ -1,1 +1,1 @@
-My working diretory for shell commands
+my woring directory
