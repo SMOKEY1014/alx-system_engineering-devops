@@ -1,1 +1,1 @@
-where am i
+My working diretory for shell commands
