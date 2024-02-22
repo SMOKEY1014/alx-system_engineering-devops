@@ -10,6 +10,6 @@ while [ $hour -le 12 ]; do
         ((min++))
     done
 
-    minutes=0
+    min=0
     ((hour++))
 done
