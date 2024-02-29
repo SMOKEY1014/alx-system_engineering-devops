@@ -1,0 +1,13 @@
+
+Find the regular expression that will match the following cases 
+Your Test string :
+htn
+hbtn
+hbbtn
+hbbbtn
+
+Match results :
+htn
+hbtn
+
+Using the project format given, create a Ruby script that accepts one argument and pass it to a regular expression matching method
