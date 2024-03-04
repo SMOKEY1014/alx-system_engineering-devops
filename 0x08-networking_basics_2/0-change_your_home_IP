@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Update /etc/hosts file
 
 # # Check if script is running in Docker
