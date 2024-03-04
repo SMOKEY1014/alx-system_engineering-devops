@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+# Get the list of network interfaces and 
+# Loop through each interface and extract the IPv4 addresses
 
-# Get the list of network interfaces
 interfaces=$(ip addr show | grep -oP '(?<=^\d: ).*(?=: )')
 
-# Loop through each interface and extract the IPv4 addresses
+
 for interface in $interfaces; do
     ipv4_addresses=$(ip addr show "$interface" | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
     for address in $ipv4_addresses; do
