@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# A script for  connecting to a server without typing a password
+
+# Calling all Locally registered Hosts 
+Host *
+
+    # Use the private key at ~/.ssh/school for authentication
+    IdentityFile ~/.ssh/school
+
+    # Refuse to authenticate using password (password authentication is disabled)
+    PasswordAuthentication no
+
+    # Configuring specific host
+    HostName 18.207.234.22
+
+    # Adding a default user
+    User ubuntu
