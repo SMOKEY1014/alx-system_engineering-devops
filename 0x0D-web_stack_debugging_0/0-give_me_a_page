@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix my server
+
+echo "Hello Holberton">root/page
