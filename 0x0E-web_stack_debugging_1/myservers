@@ -1,0 +1,5 @@
+
+Name            Username            IP          State	
+457005-web-01	ubuntu	    18.207.234.22	    running	
+457005-web-02	ubuntu	    54.172.197.227	    running	
+457005-lb-01	ubuntu	    54.236.33.43	    running
