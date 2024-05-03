@@ -39,13 +39,10 @@ frontend www-https
 frontend http-to-https
     bind *:80
     mode http
-    default_backend https_redirect
+    http-request set-header X-Forwarded-Proto http
+    default_backend www
         
 backend www
     balance roundrobin
     server 457005-web-01 18.207.234.22:80 check
     server 457005-web-02 54.172.197.227:80 check
-        
-
-backend https_redirect
-    redirect location https://www.phakamani.tech
