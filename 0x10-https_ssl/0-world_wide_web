@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+audit_subdomain() {
+    domain=$1
+    subdomain=$2
+    record_type=$(dig +short -t A "$subdomain.$domain" | awk '{print length ? "A" : "CNAME"}')
+    destination=$(dig +short "$subdomain.$domain" | awk 'NR==1{print}')
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+}
+
+audit_domain() {
+    domain=$1
+    audit_subdomain "$domain" "www"
+    audit_subdomain "$domain" "lb-01"
+    audit_subdomain "$domain" "web-01"
+    audit_subdomain "$domain" "web-02"
+}
+
+main() {
+    domain=$1
+    subdomain=$2
+    if [ -z "$subdomain" ]; then
+        audit_domain "$domain"
+    else
+        audit_subdomain "$domain" "$subdomain"
+    fi
+}
+
+main "$@"
