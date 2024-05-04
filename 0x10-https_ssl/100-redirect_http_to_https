@@ -32,18 +32,20 @@ defaults
     errorfile 504 /etc/haproxy/errors/504.http
 
 frontend www-https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.phakamani.tech/fullchain.pem
+    bind *:443 ssl crt /etc/haproxy/combined.pem
     http-request set-header X-Forwarded-Proto https
-    http-request redirect scheme https code 301 unless { ssl_fc }
     default_backend www
     
 frontend http-to-https
     bind *:80
     mode http
-    http-request set-header X-Forwarded-Proto http
-    default_backend www
+    default_backend https_redirect
         
 backend www
     balance roundrobin
     server 457005-web-01 18.207.234.22:80 check
     server 457005-web-02 54.172.197.227:80 check
+        
+
+backend https_redirect
+    redirect location https://www.phakamani.tech
