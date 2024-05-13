@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# script that configures the container
+# Requirements : nginx must be running as nginx user and must be listening on all active IPs on port 8080
+
+# lets use variables for paths to shorten the code
+CONF_NGINX="/etc/nginx/nginx.conf"
+DEFAULT_SITE="/etc/nginx/sites-available/default"
+
+# Updating Nginx to run ans nginx user
+sed -i 's/#user www-data/user nginx;/' "$CONF_NGINX"
+
+# Update default site configuration to listen on port 8080
+sed -i "s/80/8080/g" "$DEFAULT_SITE"
+
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2
+
+# Restart Nginx
+sudo -u nginx service nginx start
