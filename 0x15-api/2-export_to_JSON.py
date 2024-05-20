@@ -41,11 +41,11 @@ def exp_to_json(emp_id, username, todos_data):
         ]
     data = {str(emp_id): task_list}
 
-    # with open(filename, mode='w') as file:
-    #     json.dump(data, file)
+    with open(filename, mode='w') as file:
+        json.dump(data, file)
 
-    with open(filename, mode='w', encoding='utf8') as file:
-        json.dump(data, file, indent=4)
+    # with open(filename, mode='w', encoding='utf8') as file:
+    #     json.dump(data, file, indent=4)
 
 
 if __name__ == '__main__':
