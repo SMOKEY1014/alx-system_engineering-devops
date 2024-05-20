@@ -4,8 +4,8 @@
 Python script to export data in the JSON format.
 """
 
-import requests
 import json
+import requests
 
 
 def fetch_employees_data():
