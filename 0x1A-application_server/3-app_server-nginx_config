@@ -32,4 +32,15 @@ server {
         # Set HTTP version
         proxy_http_version 1.1;
     }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+        # Proxy requests to the Gunicorn application running on port 5001
+        proxy_pass http://localhost:5001/number_odd_or_even/;
+
+        # Set headers for the forwarded request
+        proxy_set_header Host $host;
+
+        # Set HTTP version
+        proxy_http_version 1.1;
+    }
 }
